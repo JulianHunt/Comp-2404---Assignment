@@ -1,0 +1,18 @@
+#ifndef GENRE_H
+#define GENRE_H
+using namespace std;
+#include "Util.h"
+#include <string>
+class Genre
+{
+   public:
+     Genre();
+     ~Genre();
+     GenreType getGenre();
+     void setGenre(GenreType g);
+     string toString();
+   private:
+     GenreType mGenre;
+};
+
+#endif

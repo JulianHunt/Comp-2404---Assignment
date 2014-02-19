@@ -1,0 +1,41 @@
+using namespace std;
+#include<string>
+#include"Movie.h"
+
+
+string Movie::getTitle()
+{
+  return title;
+}
+
+int Movie::getYear()
+{
+  return year;
+}
+
+Genre* Movie::getGenre()
+{
+  return mGenre;
+}
+
+void Movie::setTitle(string n)
+{
+  title=n;
+}
+
+void Movie::setYear(int y)
+{
+  year=y;
+}
+
+void Movie::setGenre(Genre * g)
+{
+  mGenre=g;
+}
+
+string Movie::toString()
+{
+  string s=mGenre->toString();
+  return"Title: %s",title;
+}
+

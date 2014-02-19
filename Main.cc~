@@ -1,0 +1,8 @@
+#include "Control.h"
+
+Control c;
+int main()
+{
+  c=new Control();
+  c.runProgram();
+}

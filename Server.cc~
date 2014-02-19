@@ -1,0 +1,18 @@
+using namespace std;
+#include "Server.h"
+
+Server::Server()
+{
+  collection= new Storage();
+}
+
+void Server::retrieve(DynArray* movieArr)
+{
+   collection->retrieve(movieArr);
+}
+      
+void Server::update(UpdateType action, DynArray* movieArr)
+{
+   cout<<"Made it into Server update function";
+   collection->update(action,movieArr);
+}

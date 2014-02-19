@@ -1,0 +1,51 @@
+using namespace std;
+#include "Storage.h"
+#include "DynArray.h"
+#include "Util.h"
+
+Storage::Storage()
+{
+   masterCollection = new DynArray();
+}
+      
+Storage::~Storage()
+{
+    delete masterCollection;
+}
+
+void Storage::retrieve(DynArray* movieArr)
+{
+   cout<<"Here"<<endl;
+   int size = masterCollection->getSize();
+   for(int i=0;i<size;i++)
+   {
+      Movie * temp= masterCollection->getNthMov(i);
+      movieArr->addMovie(temp);
+   }
+}
+
+void Storage::update(UpdateType action, DynArray* movieArr)
+{
+   if(action==ADD)
+   {
+      int n = movieArr->getSize();
+      for(int i=0;i<n;i++)
+      {
+         masterCollection->addMovie(movieArr->getNthMov(i));
+      }
+   }
+   else
+   {
+      int n = movieArr->getSize();
+      for(int i=0;i<n;i++)
+      {
+	 Movie * temp = movieArr->getNthMov(i);
+         masterCollection->deleteMovie(temp->getTitle());
+      }
+   }
+}
+
+int Storage::getMasterSize()
+{
+   return masterCollection->getSize();
+}
